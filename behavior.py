@@ -22,6 +22,9 @@ class Behavior:
             #consider activation
             pass
 
+    def sense_and_act(self):
+        
+
     def update(self):
         pass
 
