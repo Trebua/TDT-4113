@@ -43,8 +43,6 @@ def explorer(dist=10):
         m.backward(.2,0.2)
     m.left(.75,5)
 
-
-
 def random_step(motors,speed=0.25,duration=1):
     dir = random.choice(['forward','backward','left','right'])
     eval('Motors.'+ dir)(motors,speed,duration)

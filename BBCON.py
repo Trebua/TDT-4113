@@ -9,6 +9,8 @@ class BBCON():
     #Other instance variables, such as the current timestep, the inactive behaviors, and the controlled agent/robot
     #may also prove useful in your implementation.
 
+    #test
+
     def add_behavior(self): #append a newly-created behavior onto the behaviors list.
         return True
 
