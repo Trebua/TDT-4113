@@ -1,3 +1,5 @@
+import time
+
 class BBCON():
 
     behaviors = [] #a list of all the behavior objects used by the bbcon
@@ -30,29 +32,42 @@ class BBCON():
     def update_behaviors(self):
         for behave in self.behaviors:
             behave.update()
+<<<<<<< HEAD
     #oppdaterer alle motobs
+=======
+
+    #Oppdaterer alle motobs med recommendations fra vinnende behaviour
+>>>>>>> f6826201711d12959b36446e543b3916ddf3c539
     def update_motobs(self, recommendation):
         for motob in self.motobs:
             motob.update(recommendation)
 
+    #Oppdaterer sensorverdier
     def update_sensobs(self):
         for sensor in self.sensobs:
             sensor.update()
 
+    #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
         return winner.motor_recommendations[0],winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
 
+    #Resetter alle sensobs
+    def reset_sensobs(self):
+        for sensor in self.sensobs:
+            sensor.reset()
 
+    #Kjører alle metodene
     def run_one_timestep(self):
+
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)
         self.update_sensobs()
 
-
         #2. Update all behaviors - These updates involve reading relevant sensob values and
         #  producing a motorrecommendation.
         self.update_behaviors()
+
         #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
         #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
         recommendation,active_flag = self.choose_winning_behaviour()
@@ -60,10 +75,10 @@ class BBCON():
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
         self.update_motobs((recommendation, active_flag))
+
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-
+        time.sleep(0.5)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
-
-        return True
+        self.reset_sensobs()
