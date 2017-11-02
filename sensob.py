@@ -1,6 +1,12 @@
+from abc import abstractmethod
 
 class Sensob:
 
-    def __init__(self, sensor):
-        self.sensor = sensor
-        self.value = None
+    def __init__(self, sensors):
+        return
+
+    @abstractmethod
+    def update(self):
+        return
+
+
