@@ -1,6 +1,10 @@
-﻿BBCON - behaviour controller
+﻿BBCON - behaviour controller - Sindre og Herman
 
 Sensob - håndterer ulike sensorer (sensorer har finnes i basic_robot) - Henrik og Jørgen
+- camera
+- infrared
+- ultrasonic(?)
+
 Motob - Sindre og Herman
 
 Arbitrator - velger handling - Sindre og Herman
