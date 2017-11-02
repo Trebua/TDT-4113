@@ -1,3 +1,4 @@
+
 class motob():
 
     motors = [] # a list of the motors whose settings will be determined by the motob.
