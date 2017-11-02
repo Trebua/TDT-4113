@@ -20,7 +20,7 @@ class BBCON():
         return
 
     def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
-        self.activ_behaviors.append(behavior)
+        self.active_behaviors.append(behavior)
         return
 
     def deactive_behavior(self, behavior): #remove an existing behavior from the active behaviors list.
@@ -32,12 +32,9 @@ class BBCON():
     def update_behaviors(self):
         for behave in self.behaviors:
             behave.update()
-<<<<<<< HEAD
-    #oppdaterer alle motobs
-=======
+
 
     #Oppdaterer alle motobs med recommendations fra vinnende behaviour
->>>>>>> f6826201711d12959b36446e543b3916ddf3c539
     def update_motobs(self, recommendation):
         for motob in self.motobs:
             motob.update(recommendation)
