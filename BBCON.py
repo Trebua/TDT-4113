@@ -32,7 +32,7 @@ class BBCON():
     def update_behaviors(self):
         for behave in self.behaviors:
             behave.update()
-            
+
     #Oppdaterer alle motobs med recommendations fra vinnende behaviour
     def update_motobs(self, recommendation):
         for motob in self.motobs:
