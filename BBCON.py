@@ -59,7 +59,7 @@ class BBCON():
 
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
-
+        
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
 
