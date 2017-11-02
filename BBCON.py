@@ -20,7 +20,7 @@ class BBCON():
         return
 
     def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
-        self.activ_behaviors.append(behavior)
+        self.active_behaviors.append(behavior)
         return
 
     def deactive_behavior(self, behavior): #remove an existing behavior from the active behaviors list.
