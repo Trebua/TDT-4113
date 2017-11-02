@@ -1,12 +1,16 @@
 
 class Behavior:
 
-    def __init__(self, bbcon):
+    def __init__(self, bbcon, priority = 0):
         self.bbcon = bbcon  # pointer to the controller that uses this behavior.
         self.sensobs = []   #a list of all sensobs that this behavior uses
         self.motor_recommendations = [] #list of motor recommendations for arbitrator
         self.active_flag = False    #active/inactive behavior
+        self.priority = priority #Initial priority
 
+
+    def set_priority(self,priority):
+        self.priority = priority
 
     def consider_deactivation(self):
         if self.active_flag:
