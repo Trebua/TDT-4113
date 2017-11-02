@@ -27,14 +27,22 @@ class BBCON():
             self.active_behaviors.remove(behavior)
         return
 
+    #Oppdaterer alle behaviors
+    def update_behaviors(self):
+        for behave in self.behaviors:
+            behave.update()
 
+    def update_motobs(self):
+        for motob in self.motobs:
+            motob.update()
+    
     def run_one_timestep(self):
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)
 
         #2. Update all behaviors - These updates involve reading relevant sensob values and
         #  producing a motorrecommendation.
-
+        self.update_behaviors()
         #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
         #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
 
