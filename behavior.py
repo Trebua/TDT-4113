@@ -24,6 +24,7 @@ class Behavior:
             pass
 
     def sense_and_act(self):
+        pass
         
 
     def update(self):
