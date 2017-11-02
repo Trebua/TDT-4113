@@ -24,4 +24,3 @@ class Behavior:
 
     def add_sensob(self,sensob):
         self.sensobs.append(sensob)
-
