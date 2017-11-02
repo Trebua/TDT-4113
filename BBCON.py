@@ -26,7 +26,6 @@ class BBCON():
             self.active_behaviors.remove(behavior)
         return
 
-<<<<<<< HEAD
     #Oppdaterer alle behaviors
     def update_behaviors(self):
         for behave in self.behaviors:
@@ -35,8 +34,7 @@ class BBCON():
     def update_motobs(self):
         for motob in self.motobs:
             motob.update()
-    
-=======
+
     def update_sensobs(self):
         for sensor in self.sensobs:
             sensor.update()
@@ -47,7 +45,6 @@ class BBCON():
         #Skal man ha med noe om activeflag her eller håndteres det i behaviour?
 
 
->>>>>>> 9a8cfa479223c03efbc451170f8d5d02588de183
     def run_one_timestep(self):
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)
