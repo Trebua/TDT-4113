@@ -2,19 +2,17 @@ import random
 
 class Arbitrator():
 
-<<<<<<< HEAD
+
     def __init__(self, bbcon, stochastic):
-=======
+
     #BBCon.active_behaviours gir behaviours
     #Behaviour.priority gir vekt
-    def __init__(self, bbcon):
->>>>>>> e2f7f1775a33076f7befcc8dc5a5953319d982d6
+    def __init__(self, bbcon, stochastic):
+
         self.bbcon = bbcon
         self.stochastic = stochastic
 
     def choose_action(self):
-        active_behaviours = self.bbcon.active_behaviors
-
         return True
 
     #Velger en tilfeldig behaviour
