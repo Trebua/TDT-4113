@@ -1,3 +1,5 @@
+import time
+
 class BBCON():
 
     behaviors = [] #a list of all the behavior objects used by the bbcon
@@ -43,6 +45,9 @@ class BBCON():
         winner = self.arbitrator.choose_action()
         return winner.motor_recommendations[0],winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
 
+    def reset_sensobs(self):
+        for sensor in self.sensobs:
+            sensor.reset()
 
     def run_one_timestep(self):
         #1. Update all sensobs - These updates will involve querying the relevant sensors
@@ -62,8 +67,7 @@ class BBCON():
         
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-
+        time.sleep(0.5)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
-
-        return True
+        self.reset_sensobs()
