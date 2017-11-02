@@ -21,7 +21,9 @@ class Behavior:
     def update(self):
         pass
 
-
     def add_sensob(self,sensob):
         self.sensobs.append(sensob)
+
+    def add_motor_recommendation(self,motor_recommendation):
+        self.motor_recommendations.append(motor_recommendation)
 
