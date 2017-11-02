@@ -1,8 +1,12 @@
 <<<<<<< HEAD
-=======
 #from basic_robot.motors import *
 import basic_robot.motors.py
->>>>>>> 0788a30da96c827aa4c54497aeddafb8c90aacb0
+
+=======
+
+#from basic_robot.motors import *
+import basic_robot.motors.py
+>>>>>>> e2f7f1775a33076f7befcc8dc5a5953319d982d6
 
 class motob():
 
