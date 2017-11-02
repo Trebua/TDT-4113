@@ -21,13 +21,13 @@ class Arbitrator():
 
     #Velger hvordan man skal finne en vinner basert på hva init
     def choose_action(self):
-<<<<<<< HEAD
+
         return True
-=======
+
         if self.stochastic:
             return self.stochastic_choice()
         else: return self.deterministic_choice()
->>>>>>> ca71a1fd5fd3f46a9ddb58d789e37de6f8613867
+
 
     #Velger en tilfeldig behaviour
     def stochastic_choice(self):
