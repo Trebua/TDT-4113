@@ -7,6 +7,7 @@ class Behavior:
         self.motor_recommendations = [] #list of motor recommendations for arbitrator
         self.active_flag = False    #active/inactive behavior
         self.priority = priority #Initial priority
+        self.weight = 0
 
 
     def set_priority(self,priority):
