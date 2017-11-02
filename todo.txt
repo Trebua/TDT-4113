@@ -1,9 +1,8 @@
-﻿BBCON - behaviour controllerrr
+﻿BBCON - behaviour controller
 
-Sensob - håndterer ulike sensorer (sensorer har finnes i basic_robot)
+Sensob - håndterer ulike sensorer (sensorer har finnes i basic_robot) - Henrik og Jørgen
+Motob - Sindre og Herman
 
-Motob -
+Arbitrator - velger handling - Sindre og Herman
 
-Arbitrator - velger handling
-
-
+Behaviour - Henrik og Jørgen
