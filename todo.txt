@@ -1,0 +1,9 @@
+BBCON - behaviour controller
+
+Sensob - håndterer ulike sensorer (sensorer har finnes i basic_robot)
+
+Motob -
+
+Arbitrator - velger handling
+
+
