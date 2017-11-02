@@ -19,4 +19,4 @@ class Behavior:
             pass
 
     def update(self):
-        
+        pass
