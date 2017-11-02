@@ -13,6 +13,7 @@ class BBCON():
     #test2
     #HEI HENRIK
     #HEI SINDRE
+    #lol
 
     def add_behavior(self): #append a newly-created behavior onto the behaviors list.
         return True
