@@ -30,7 +30,7 @@ class BBCON():
     def update_behaviors(self):
         for behave in self.behaviors:
             behave.update()
-
+    #oppdaterer alle motobs
     def update_motobs(self, recommendation):
         for motob in self.motobs:
             motob.update(recommendation)
