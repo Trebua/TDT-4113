@@ -41,8 +41,7 @@ class BBCON():
 
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
-        return winner.motor_recommendations[0] #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
-        #Skal man ha med noe om activeflag her eller håndteres det i behaviour?
+        return winner.motor_recommendations[0],winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
 
 
     def run_one_timestep(self):
@@ -56,13 +55,14 @@ class BBCON():
         self.update_behaviors()
         #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
         #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
-        recommendation = self.choose_winning_behaviour()
+        recommendation,active_flag = self.choose_winning_behaviour()
 
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
+
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
 
