@@ -11,14 +11,14 @@ class BBCON():
 
     def add_behavior(self, behavior): #append a newly-created behavior onto the behaviors list.
         self.behaviors.append(behavior)
-        return 
+        return
 
     def add_sensob(self,sensob): #append a newly-created sensob onto the sensobs list.
         self.sensobs.append(sensob)
         return
 
     def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
-        self.activate_behavior(behavior)
+        self.activ_behaviors.append(behavior)
         return
 
     def deactive_behavior(self, behavior): #remove an existing behavior from the active behaviors list.
