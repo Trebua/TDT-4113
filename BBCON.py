@@ -33,9 +33,9 @@ class BBCON():
         for behave in self.behaviors:
             behave.update()
 
-    def update_motobs(self):
+    def update_motobs(self, recommendation):
         for motob in self.motobs:
-            motob.update()
+            motob.update(recommendation)
 
     def update_sensobs(self):
         for sensor in self.sensobs:
@@ -64,7 +64,7 @@ class BBCON():
 
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
-        
+        self.update_motobs((recommendation, active_flag))
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
         time.sleep(0.5)
