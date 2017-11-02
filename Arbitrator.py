@@ -2,6 +2,7 @@ import random
 
 class Arbitrator():
 
+<<<<<<< HEAD
 
     def __init__(self, bbcon, stochastic):
 
@@ -10,10 +11,23 @@ class Arbitrator():
     def __init__(self, bbcon, stochastic):
 
         self.bbcon = bbcon
+=======
+    #BBCon.active_behaviours gir behaviours
+    #Behaviour.priority gir vekt
+    def __init__(self, bbcon,stochastic):
+        self.bbcon = bbcon #Oppdaterer denne seg?
+>>>>>>> ca71a1fd5fd3f46a9ddb58d789e37de6f8613867
         self.stochastic = stochastic
 
+    #Velger hvordan man skal finne en vinner basert på hva init
     def choose_action(self):
+<<<<<<< HEAD
         return True
+=======
+        if self.stochastic:
+            return self.stochastic_choice()
+        else: return self.deterministic_choice()
+>>>>>>> ca71a1fd5fd3f46a9ddb58d789e37de6f8613867
 
     #Velger en tilfeldig behaviour
     def stochastic_choice(self):
@@ -35,6 +49,12 @@ class Arbitrator():
                 winner = key
         return winner
 
+    #Velger den med størst prioritet
     def deterministic_choice(self):
-        return True
-
+        max = self.bbcon.active_behaviors[0].priority
+        winner = self.bbcon.active_behaviors[0]
+        for behave in self.bbcon.active_behaviors:
+            if behave.priority > max:
+                max = behave.priority
+                winner = behave
+        return winner
