@@ -6,3 +6,7 @@ Motob - Sindre og Herman
 Arbitrator - velger handling - Sindre og Herman
 
 Behaviour - Henrik og Jørgen
+
+Må lastes ned antageligvis:
+- RPi.GPIO
+- wiringpi2 muligens
