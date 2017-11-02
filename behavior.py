@@ -19,4 +19,7 @@ class Behavior:
             pass
 
     def update(self):
+
+    def add_sensob(self,sensob):
+        self.sensobs.append(sensob)
         
