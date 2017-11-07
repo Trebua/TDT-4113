@@ -8,11 +8,10 @@ class Sensob:
     def __init__(self, sensors):
         self.value = None
         self.recommendation = None
+        self.sensors = []
         return
 
     #Metode alle sensobs skal ha, som oppdaterer sensorverdiene og finner ut ny self.value
     @abstractmethod
     def update(self):
         return
-
-
