@@ -24,7 +24,7 @@ class Camera_sensob(Sensob):
         total_width = 0
         for width in range(self.img_width):
             for height in range(self.img_height):
-                if self.check_pixel(self.image(width,height)):
+                if self.check_pixel(self.image.getpixel((width,height))):
                     total_width+=width
                     amount += 1
         return total_width/amount
