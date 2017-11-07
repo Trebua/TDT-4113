@@ -46,7 +46,7 @@ class BBCON():
     #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
-        return winner.motor_recommendations[0],winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
+        return winner.motor_recommendations.pop(-1),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
 
     #Resetter alle sensobs
     def reset_sensobs(self):
@@ -55,6 +55,7 @@ class BBCON():
 
     #Kjører alle metodene
     def run_one_timestep(self):
+        #While True?
 
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)

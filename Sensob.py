@@ -4,8 +4,10 @@ from abc import abstractmethod
 class Sensob:
 
     #Alle sensorer har en verdi mellom 0-1 som behandles i behaviour + arbitrator
+    #Recommendation er en motoranbefeling på formen ("L/R", degrees)
     def __init__(self, sensors):
         self.value = None
+        self.recommendation = None
         return
 
     #Metode alle sensobs skal ha, som oppdaterer sensorverdiene og finner ut ny self.value
