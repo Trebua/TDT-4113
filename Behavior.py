@@ -9,6 +9,7 @@ class Behavior:
         self.priority = priority #Initial priority
         self.weight = 0
 
+
     def set_priority(self,priority):
         self.priority = priority
 
