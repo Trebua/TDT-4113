@@ -4,7 +4,7 @@ import random
 class Arbitrator():
 
     #BBCon.active_behaviours gir behaviours
-    #Behaviour.priority gir vekt
+    #Behaviour.weight gir vekt
     def __init__(self, bbcon,stochastic):
         self.bbcon = bbcon #Oppdaterer denne seg?
         self.stochastic = stochastic
@@ -17,16 +17,16 @@ class Arbitrator():
 
     #Velger en tilfeldig behaviour
     def stochastic_choice(self):
-        sum_priority = 0
+        sum_weight = 0
         behaviour_dict = {}
 
         #Går igjennom alle behaviours og lager en dictionary med intervaller
         for behave in self.bbcon.active_behaviors:
-            behaviour_dict[behave] = [sum_priority,sum_priority+behave.priority]
-            sum_priority+= behave.priority
+            behaviour_dict[behave] = [sum_weight,sum_weight+behave.weight]
+            sum_weight+= behave.weight
 
         #Plukker et random tall innenfor intervallet
-        rand = random.uniform(0,sum_priority)
+        rand = random.uniform(0,sum_weight)
         winner = None
 
         #Finner riktig vinner
@@ -37,10 +37,10 @@ class Arbitrator():
 
     #Velger den med størst prioritet
     def deterministic_choice(self):
-        max = self.bbcon.active_behaviors[0].priority
+        max = self.bbcon.active_behaviors[0].weight
         winner = self.bbcon.active_behaviors[0]
         for behave in self.bbcon.active_behaviors:
-            if behave.priority > max:
-                max = behave.priority
+            if behave.weight > max:
+                max = behave.weight
                 winner = behave
         return winner

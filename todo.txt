@@ -11,6 +11,19 @@ Arbitrator - velger handling - Sindre og Herman
 
 Behaviour - Henrik og Jørgen
 
-Må lastes ned antageligvis:
+Må lastes ned antageligvis: ikke likevel
 - RPi.GPIO
 - wiringpi2 muligens
+
+Hva som er gjort:
+- Behavior (ganske ferdig)
+- Ultrasonic_senob (ganske ferdig)
+- Sensob (ganske ferdig)
+- Motob (ganske ferdig)
+- BBCON (ganske ferdig)
+- Arbitrator (ganske ferdig)
+- IR_sensob (ganske ferdig)
+
+Litt igjen:
+- Camera_sensob - må fikse motor recommendation (L/R,grader)
+- Justere verdier så de funker bra
