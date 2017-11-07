@@ -9,7 +9,6 @@ class Behavior:
         self.priority = priority #Initial priority
         self.weight = 0
 
-
     def set_priority(self,priority):
         self.priority = priority
 
@@ -28,6 +27,10 @@ class Behavior:
         
 
     def update(self):
+        for sensor in self.sensobs:
+            sensor.update()
+
+
         pass
 
     def add_sensob(self,sensob):

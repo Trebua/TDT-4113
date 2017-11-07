@@ -28,7 +28,9 @@ class Camera_sensob(Sensob):
                 if self.check_pixel(self.image.getpixel((width,height))):
                     total_width+=width
                     amount += 1
-        return total_width/amount
+        if amount == 0:
+            return 0,0
+        return total_width/amount,amount
 
     def check_pixel(self,pixel):
         return(pixel[0] < self.max_red and pixel[1] > self.min_green and pixel[2] < self.max_blue)
