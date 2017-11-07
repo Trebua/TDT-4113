@@ -3,6 +3,7 @@ from basic_robot import camera
 from PIL import Image
 
 class Camera_sensob(Sensob):
+    
     def __init__(self):
         Sensob.__init__(Sensob)
         self.img_width = 128
@@ -31,4 +32,3 @@ class Camera_sensob(Sensob):
 
     def check_pixel(self,pixel):
         return(pixel[0] < self.max_red and pixel[1] > self.min_green and pixel[2] < self.max_blue)
-
