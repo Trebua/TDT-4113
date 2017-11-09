@@ -18,12 +18,16 @@ class Motob():
     #Regner med at motors kun inneholder et motors-objekt
     def operationalize(self):
         if self.value[1]:
+            print("forward")
             self.motors[0].forward(0.25)
         if not self.value[1]:
+            print("stop")
             self.motors[0].stop()
         else:
             if self.value[0][0] == "L":
+                print("Left")
                 self.motors[0].set_value([-1,1],1) #Detaljer senere: hvordan få til 45 grader?
             else:
+                print("Right")
                 self.motors[0].set_value([1,-1],1)
 

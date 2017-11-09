@@ -99,7 +99,7 @@ class BBCON():
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-        time.sleep(0.1)
+        time.sleep(0.5)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
