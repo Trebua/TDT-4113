@@ -3,7 +3,7 @@ from basic_robot import camera
 from PIL import Image
 
 class Camera_sensob(Sensob):
-    
+
     def __init__(self):
         Sensob.__init__(Sensob)
         self.img_width = 128
@@ -21,7 +21,7 @@ class Camera_sensob(Sensob):
         return self.value
 
     def find_green(self):
-        amount = 0
+        amount = 0 
         total_width = 0
         for width in range(self.img_width):
             for height in range(self.img_height):
