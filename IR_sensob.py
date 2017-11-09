@@ -1,11 +1,11 @@
 from Sensob import Sensob
-import reflectance_sensors
+from reflectance_sensors import ReflectanceSensors
 
 class IR_sensob(Sensob):
 
     def __init__(self):
         Sensob.__init__(self)
-        self.IR = reflectance_sensors.IRProximitySensor()
+        self.IR = ReflectanceSensors()
         self.value = None
         self.recommendation = None
 
