@@ -1,4 +1,4 @@
-import Sensob
+from Sensob import Sensob
 import reflectance_sensors
 
 class IR_sensob(Sensob):
