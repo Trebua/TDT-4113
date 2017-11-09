@@ -152,7 +152,9 @@ class BBCONm2(threading.Thread):
 
 def run2():
     #Initierer bbcon
-    bbcon = BBCONm2()
+    #bbcon = BBCONm2()
+    thread1 = BBCONm2(1, "Thread-1", 1)
+    thread2 = BBCONm2(2, "Thread-2", 2)
 
     #Initierer sensorer
     ultrasonic = Ultrasonic_sensob()
@@ -161,14 +163,16 @@ def run2():
 
     #Initierer behaviour
     #avoid_collision = Behavior(bbcon,0.5) #Her må prioritet settes (mellom 0 og 1?)
-    find_color = Behavior(bbcon,1) #Evt ny
+    find_color = Behavior(thread1,1) #Evt ny
+    find_color = Behavior(thread1,2) #Evt ny
 
     #Setter navn på behaviours
     #avoid_collision.set_name("Kollisjon")
     find_color.set_name("Kamera")
 
     #Initierer arbitrator
-    arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
+    arbitrator = Arbitrator(thread1,True) #Må sette true eller false, true = stokastisk, false = deterministisk
+    arbitrator = Arbitrator(thread2,True)
 
     #Initerer motob
     motob = Motob()
@@ -179,24 +183,28 @@ def run2():
     find_color.add_sensob(camera)
 
     #Legger sensobs i bbcon - for at alle sensorverdiene skal oppdatere seg
-    bbcon.add_sensob(ultrasonic)
-    bbcon.add_sensob(ir)
-    bbcon.add_sensob(camera)
+    thread1.add_sensob(ultrasonic)
+    thread1.add_sensob(ir)
+    thread1.add_sensob(camera)
+    thread2.add_sensob(ultrasonic)
+    thread2.add_sensob(ir)
+    thread2.add_sensob(camera)
 
     #Legger behaviours i bbcon
     #bbcon.add_behavior(avoid_collision)
-    bbcon.add_behavior(find_color)
+    thread1.add_behavior(find_color)
+    thread2.add_behavior(find_color)
 
     #Legger motor inn i bbcon
-    bbcon.add_motob(motob)
+    thread1.add_motob(motob)
+    thread2.add_motob(motob)
 
     #Legger til arbitrator
-    bbcon.set_arbitrator(arbitrator)
+    thread1.set_arbitrator(arbitrator)
+    thread2.set_arbitrator(arbitrator)
 
     ZumoButton().wait_for_press()
 
-    thread1 = BBCONm2(1, "Thread-1", 1)
-    thread2 = BBCONm2(2, "Thread-2", 2)
 
     thread1.start()
     thread2.start()
