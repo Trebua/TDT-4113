@@ -4,15 +4,17 @@ from Behavior import Behavior
 from Arbitrator import Arbitrator
 from IR_sensob import IR_sensob
 from Camera_sensob import Camera_sensob
-from Sensob import Sensob
 from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
-import random
-import reflectance_sensors
-import camera
-from PIL import Image
-import motors
-import ultrasonic
+
+#Disse importeres i andre klasser
+#from Sensob import Sensob
+#import random
+#import reflectance_sensors
+#import camera
+#from PIL import Image
+#import motors
+#import ultrasonic
 
 
 class BBCON():

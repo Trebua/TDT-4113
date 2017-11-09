@@ -9,7 +9,7 @@ class Camera_sensob(Sensob):
         Sensob.__init__(self)
         self.img_width = 128
         self.img_height = 96
-        self.camera = Camera(img_width=self.img_width,img_height=self.img_height)
+        self.camera = camera.Camera(img_width=self.img_width,img_height=self.img_height)
         self.value = None #0-1
         self.image = None
         self.min_green = 150 # Thresholds for the color testing
