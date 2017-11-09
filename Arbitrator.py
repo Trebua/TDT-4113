@@ -33,9 +33,8 @@ class Arbitrator():
         for key,value in behaviour_dict.items():
             if value[1] < rand:
                 winner = key
-        print(self.bbcon.active_behaviors)
         if winner == None:
-            winner = self.bbcon.active_behaviors[0] #Dette funker ikke
+            winner = self.bbcon.behaviors[0] #Dette funker ikke
         return winner
 
     #Velger den med størst prioritet
