@@ -15,7 +15,6 @@ class IR_sensob(Sensob):
         self.value = 0
         left_value = sum(all_values[:3])
         right_value = sum(all_values[3:])
-        print(all_values)
         for val in all_values: #oppdaterer self.value med 1/6 (høyest mulig) hvis det er mørkt
             if (val < 0.2):
                 self.value += 1/len(all_values)
