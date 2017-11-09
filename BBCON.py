@@ -119,6 +119,10 @@ def run():
     avoid_collision = Behavior(bbcon,0.5) #Her må prioritet settes (mellom 0 og 1?)
     find_color = Behavior(bbcon,1) #Evt ny
 
+    #Setter navn på behaviours
+    avoid_collision.set_name("Kollisjon")
+    find_color.set_name("Kamera")
+
     #Initierer arbitrator
     arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
 
@@ -150,7 +154,7 @@ def run():
     while True:
         bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
-            print(bbcon.active_behaviors[0].__name__)
+            print(bbcon.active_behaviors[0].name)
 
 
 

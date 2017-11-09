@@ -10,10 +10,14 @@ class Behavior:
         self.priority = priority #Initial priority
         self.weight = 0 #match_degree*priority
         self.match_degree = 0
+        self.name = None
 
 
     def set_priority(self,priority):
         self.priority = priority
+
+    def set_name(self,name):
+        self.name = name
 
     def consider_deactivation(self):
         if self.active_flag:
