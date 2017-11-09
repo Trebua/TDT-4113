@@ -11,8 +11,8 @@ import random
 from basic_robot import reflectance_sensors
 from basic_robot import camera
 from PIL import Image
-from basic_robot import motors.py
-from basic_robot import ultrasonic.py
+from basic_robot import motors
+from basic_robot import ultrasonic
 
 
 class BBCON():

@@ -1,5 +1,5 @@
 #from basic_robot.motors import *
-from basic_robot import motors.py
+from basic_robot import motors
 
 class motob():
 
@@ -17,6 +17,8 @@ class motob():
     #Vil få verdi som feks ((L,45), True/False)
     #Regner med at motors kun inneholder et motors-objekt
     def operationalize(self):
+        if self.value[1]:
+            self.motors[0].forward(0.25)
         if not self.value[1]:
             self.motors[0].stop()
         else:

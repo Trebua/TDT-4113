@@ -1,6 +1,6 @@
-import Sensob.py
+import Sensob
 import random
-from basic_robot import ultrasonic.py
+from basic_robot import ultrasonic
 
 #Tar inn ultrasonic-wrapper og oppdaterer distansen samt regner ut prioriteringen.
 class Ultrasonic_sensob(Sensob):
