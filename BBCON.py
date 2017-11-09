@@ -107,6 +107,35 @@ class BBCON():
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
 
+    def part1(self,delay):
+        #1. Update all sensobs - These updates will involve querying the relevant sensors
+        # for their values, along with any pre-processing of those values (as described below)
+        self.update_sensobs()
+
+        #2. Update all behaviors - These updates involve reading relevant sensob values and
+        #  producing a motorrecommendation.
+        self.update_behaviors()
+
+        time.sleep(delay)
+
+    def part2(self,delay):
+        #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
+        #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
+        recommendation,active_flag = self.choose_winning_behaviour()
+
+        #4. Update the motobs based on these motor recommendations. The motobs will then update
+        #  the settings of all motors.
+        self.update_motobs((recommendation, active_flag))
+        time.sleep(delay)
+
+    def part3(self,delay):
+        #5. Wait - This pause (in code execution) will allow the motor settings to remain active
+        #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
+        time.sleep(0.5)
+
+        #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
+        self.reset_sensobs()
+
 def run():
     #Initierer bbcon
     bbcon = BBCON()
@@ -152,8 +181,13 @@ def run():
 
     ZumoButton().wait_for_press()
 
+
+
     while True:
-        bbcon.run_one_timestep()
+        _thread.start_new_thread (bbcon.part1(0.2))
+        _thread.start_new_thread (bbcon.part2(0.2))
+        _thread.start_new_thread (bbcon.part3(0.2))
+        #bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
             print(bbcon.active_behaviors[0].name)
 
