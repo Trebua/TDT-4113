@@ -6,8 +6,7 @@ from IR_sensob import IR_sensob
 from Camera_sensob import Camera_sensob
 from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
-import _thread
-
+import threading
 #Disse importeres i andre klasser
 #from Sensob import Sensob
 #import random
@@ -18,7 +17,19 @@ import _thread
 #import ultrasonic
 
 
-class BBCONm():
+class BBCONm2(threading.Thread):
+
+    def __init__(self,threadID,name,counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+
+    def run(self):
+        if self.name == "Thread-1":
+            self.part1(self.name,self.counter,5)
+        else:
+            self.part2(self.name,self.counter,5)
 
     behaviors = [] #a list of all the behavior objects used by the bbcon
     active_behaviors = [] #a list of all behaviors that are currently active.
@@ -107,39 +118,41 @@ class BBCONm():
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
 
-    def part1(self,name,delay):
+    def part1(self,n,c,delay):
+        while True:
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)
-        self.update_sensobs()
+            self.update_sensobs()
 
         #2. Update all behaviors - These updates involve reading relevant sensob values and
         #  producing a motorrecommendation.
-        self.update_behaviors()
+            self.update_behaviors()
 
-        time.sleep(delay)
+            time.sleep(delay)
 
         #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
         #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
-        recommendation,active_flag = self.choose_winning_behaviour()
+            recommendation,active_flag = self.choose_winning_behaviour()
 
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
-        self.update_motobs((recommendation, active_flag))
+            self.update_motobs((recommendation, active_flag))
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
         #time.sleep(0.5)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
-        self.reset_sensobs()
+            self.reset_sensobs()
 
-    def part2(self,name,delay):
-        self.update_motobs((("L",0), True))
-        time.sleep(delay)
+    def part2(self,n,c,delay):
+        while True:
+            self.update_motobs((("L",0), True))
+            time.sleep(delay)
 
-def run():
+def run2():
     #Initierer bbcon
-    bbcon = BBCON()
+    bbcon = BBCONm2()
 
     #Initierer sensorer
     ultrasonic = Ultrasonic_sensob()
@@ -182,14 +195,13 @@ def run():
 
     ZumoButton().wait_for_press()
 
+    thread1 = BBCONm2(1, "Thread-1", 1)
+    thread2 = BBCONm2(2, "Thread-2", 2)
 
-    while True:
-        _thread.start_new_thread (bbcon.part1,("Thread-1", 0.5))
-        _thread.start_new_thread (bbcon.part2,("Thread-2", 0.5))
-        #bbcon.run_one_timestep()
-        if len(bbcon.active_behaviors) > 0:
-            print(bbcon.active_behaviors[0].name)
-
+    thread1.start()
+    thread2.start()
+    thread1.join()
+    thread2.join()
 
 
 
