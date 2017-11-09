@@ -1,4 +1,4 @@
-import Sensob
+from Sensob import Sensob
 import random
 import ultrasonic
 

@@ -1,4 +1,4 @@
-import Sensob
+from Sensob import Sensob
 import camera
 from PIL import Image
 
