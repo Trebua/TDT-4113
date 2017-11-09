@@ -6,6 +6,7 @@ from IR_sensob import IR_sensob
 from Camera_sensob import Camera_sensob
 from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
+import _thread
 
 #Disse importeres i andre klasser
 #from Sensob import Sensob

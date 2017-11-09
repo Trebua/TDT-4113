@@ -31,3 +31,5 @@ Litt igjen:
 
 Testing:
 - IR-proximity gir riktige verdier i arrayen
+- Kamera oppdaget grønn tekna flaske i riktig lys, og svinger riktig
+-
