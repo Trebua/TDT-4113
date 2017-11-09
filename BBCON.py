@@ -8,11 +8,11 @@ import Sensob
 import Ultrasonic_sensob
 from zumo_button import ZumoButton
 import random
-from basic_robot import reflectance_sensors
-from basic_robot import camera
+import reflectance_sensors
+import camera
 from PIL import Image
-from basic_robot import motors
-from basic_robot import ultrasonic
+import motors
+import ultrasonic
 
 
 class BBCON():

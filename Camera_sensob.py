@@ -1,5 +1,5 @@
 import Sensob
-from basic_robot import camera
+import camera
 from PIL import Image
 
 #Camera sensorobjekt

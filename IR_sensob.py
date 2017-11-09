@@ -1,5 +1,5 @@
 import Sensob
-from basic_robot import reflectance_sensors
+import reflectance_sensors
 
 class IR_sensob(Sensob):
 

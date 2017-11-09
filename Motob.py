@@ -1,5 +1,5 @@
 #from basic_robot.motors import *
-from basic_robot import motors
+import motors
 
 class motob():
 
