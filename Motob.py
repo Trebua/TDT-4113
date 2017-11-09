@@ -27,7 +27,7 @@ class Motob():
         else:
             if self.value[0][0] == "L":
                 print("Left")
-                self.motors[0].set_value([0,forhold],1) #Detaljer senere: hvordan få til 45 grader?
+                self.motors[0].set_value([0,forhold],3) #Detaljer senere: hvordan få til 45 grader?
             else:
                 print("Right")
-                self.motors[0].set_value([forhold,0],1)
+                self.motors[0].set_value([forhold,0],3)
