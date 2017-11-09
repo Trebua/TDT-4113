@@ -27,3 +27,7 @@ Hva som er gjort:
 Litt igjen:
 - Camera_sensob - må fikse motor recommendation (L/R,grader)
 - Justere verdier så de funker bra
+
+
+Testing:
+- IR-proximity gir riktige verdier i arrayen
