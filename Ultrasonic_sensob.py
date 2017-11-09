@@ -10,6 +10,8 @@ class Ultrasonic_sensob(Sensob):
         Sensob.__init__(self)
         self.ultrasonic = ultrasonic.Ultrasonic()
         self.distance = 0
+        self.recommendation = None
+        self.value = 0
 
     #Oppdaterer self.distance med sensorens utregnede avstand
     def update(self):

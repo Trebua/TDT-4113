@@ -11,6 +11,7 @@ class Behavior:
         self.weight = 0 #match_degree*priority
         self.match_degree = 0
 
+
     def set_priority(self,priority):
         self.priority = priority
 
@@ -32,8 +33,7 @@ class Behavior:
                 dict[sensor] = sensor.value
             v=list(dict.values())
             k=list(dict.keys())
-            self.motor_recommendations.append(k[v.index(max(v))].recommendation)
-            self.add_motor_recommendation(self.motor_recommendation)
+            self.add_motor_recommendation(k[v.index(max(v))].recommendation)
 
     def compute_match_degree(self):
         match = 0

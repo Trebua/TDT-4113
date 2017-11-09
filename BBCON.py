@@ -1,4 +1,19 @@
 import time
+import Motob
+import Behavior
+import Arbitrator
+import IR_sensob
+import Camera_sensob
+import Sensob
+import Ultrasonic_sensob
+from zumo_button import ZumoButton
+import random
+from basic_robot import reflectance_sensors
+from basic_robot import camera
+from PIL import Image
+from basic_robot import motors.py
+from basic_robot import ultrasonic.py
+
 
 class BBCON():
 
@@ -17,6 +32,14 @@ class BBCON():
 
     def add_sensob(self,sensob): #append a newly-created sensob onto the sensobs list.
         self.sensobs.append(sensob)
+        return
+
+    def add_motob(self,motob):
+        self.motobs.append(motob)
+        return
+
+    def set_arbitrator(self,arbitrator):
+        self.arbitrator = arbitrator
         return
 
     def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
@@ -55,7 +78,6 @@ class BBCON():
 
     #Kjører alle metodene
     def run_one_timestep(self):
-        #While True?
 
         #1. Update all sensobs - These updates will involve querying the relevant sensors
         # for their values, along with any pre-processing of those values (as described below)
@@ -79,3 +101,51 @@ class BBCON():
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
+
+def run():
+    #Initierer bbcon
+    bbcon = BBCON()
+
+    #Initierer sensorer
+    ultrasonic = Ultrasonic_sensob()
+    camera = Camera_sensob()
+    ir = IR_sensob()
+
+    #Initierer behaviour
+    avoid_collision = Behavior(bbcon,0.5) #Her må prioritet settes (mellom 0 og 1?)
+    find_color = Behavior(bbcon,1) #Evt ny
+
+    #Initierer arbitrator
+    arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
+
+    #Initerer motob
+    motob = Motob()
+
+    #Legger sensobs i behaviour
+    avoid_collision.add_sensob(ultrasonic)
+    avoid_collision.add_sensob(ir)
+    camera.add_sensob(camera)
+
+    #Legger sensobs i bbcon - for at alle sensorverdiene skal oppdatere seg
+    bbcon.add_sensob(ultrasonic)
+    bbcon.add_sensob(ir)
+    bbcon.add_sensob(camera)
+
+    #Legger behaviours i bbcon
+    bbcon.add_behavior(avoid_collision)
+    bbcon.add_behavior(find_color)
+
+    #Legger motor inn i bbcon
+    bbcon.add_motob(motob)
+
+    #Legger til arbitrator
+    bbcon.set_arbitrator(arbitrator)
+
+    ZumoButton().wait_for_press()
+
+    while True:
+        bbcon.run_one_timestep()
+
+
+
+
