@@ -128,13 +128,13 @@ class BBCON():
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-        time.sleep(0.5)
+        #time.sleep(0.5)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
 
     def part2(self,name,delay):
-        self.update_motobs(("L",0), True)
+        self.update_motobs((("L",0), True))
         time.sleep(delay)
 
 def run():
@@ -185,8 +185,8 @@ def run():
 
 
     while True:
-        _thread.start_new_thread (bbcon.part1,("Thread-1", 2))
-        _thread.start_new_thread (bbcon.part2,("Thread-2", 2))
+        _thread.start_new_thread (bbcon.part1,("Thread-1", 0.5))
+        _thread.start_new_thread (bbcon.part2,("Thread-2", 0.5))
         #bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
             print(bbcon.active_behaviors[0].name)
