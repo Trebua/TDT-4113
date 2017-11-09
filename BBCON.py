@@ -126,7 +126,7 @@ def run():
     #Legger sensobs i behaviour
     avoid_collision.add_sensob(ultrasonic)
     avoid_collision.add_sensob(ir)
-    camera.add_sensob(camera)
+    find_color.add_sensob(camera)
 
     #Legger sensobs i bbcon - for at alle sensorverdiene skal oppdatere seg
     bbcon.add_sensob(ultrasonic)
