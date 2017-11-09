@@ -17,7 +17,7 @@ class Motob():
     #Vil få verdi som feks ((L,45), True/False)
     #Regner med at motors kun inneholder et motors-objekt
     def operationalize(self):
-        forhold = self.value[0][0]/90
+        forhold = self.value[0][1]/90
         if self.value[1]:
             print("forward")
             self.motors[0].forward(0.25)
@@ -31,4 +31,3 @@ class Motob():
             else:
                 print("Right")
                 self.motors[0].set_value([forhold,0],0.2)
-
