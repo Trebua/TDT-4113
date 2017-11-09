@@ -1,5 +1,5 @@
 from Sensob import Sensob
-from camera import *
+import camera
 from PIL import Image
 
 #Camera sensorobjekt
