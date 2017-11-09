@@ -58,7 +58,9 @@ class Camera_sensob(Sensob):
     def compute_recommendation(self,x): #(L,90)
         middle = self.img_width/2
         if x < middle:
+            print('left:' + str(x))
             self.recommendation = ("L",30)
         else:
+            print('right: ' + str(x))
             self.recommendation = ("R",30)
         return
