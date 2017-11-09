@@ -9,6 +9,8 @@ class Ultrasonic():
         self.echo_pin = 31
         self.setup()
 
+
+
     def setup(self):
         GPIO.setmode(GPIO.BOARD)
 
