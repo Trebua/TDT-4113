@@ -22,7 +22,7 @@ class Behavior:
 
     def consider_activation(self):
         if not self.active_flag:
-            if self not in self.bbcon.activate_behavior:
+            if self not in self.bbcon.active_behaviors:
                 self.bbcon.activate_behavior(self)
 
     def sense_and_act(self):
