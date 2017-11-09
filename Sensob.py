@@ -15,3 +15,7 @@ class Sensob:
     #@abstractmethod
     def update(self):
         return
+
+    def reset(self):
+        self.value = None
+        return
