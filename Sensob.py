@@ -1,4 +1,4 @@
-from abc import abstractmethod
+#from abc import abstractmethod
 
 #Superklasse for sensorobjekter
 class Sensob:
@@ -12,6 +12,6 @@ class Sensob:
         return
 
     #Metode alle sensobs skal ha, som oppdaterer sensorverdiene og finner ut ny self.value
-    @abstractmethod
+    #@abstractmethod
     def update(self):
         return

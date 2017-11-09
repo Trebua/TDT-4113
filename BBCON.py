@@ -7,6 +7,13 @@ import Camera_sensob
 import Sensob
 import Ultrasonic_sensob
 from zumo_button import ZumoButton
+import random
+from basic_robot import reflectance_sensors
+from basic_robot import camera
+from PIL import Image
+from basic_robot import motors.py
+from basic_robot import ultrasonic.py
+
 
 class BBCON():
 
