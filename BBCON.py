@@ -124,7 +124,7 @@ def run():
     motob = Motob()
 
     #Legger sensobs i behaviour
-    avoid_collision.add_sensob(ultrasonic)
+    #avoid_collision.add_sensob(ultrasonic)
     avoid_collision.add_sensob(ir)
     find_color.add_sensob(camera)
 
