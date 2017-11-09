@@ -147,6 +147,7 @@ def run():
 
     while True:
         bbcon.run_one_timestep()
+        print(bbcon.active_behaviors)
 
 
 
