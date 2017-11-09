@@ -1,5 +1,5 @@
 #from basic_robot.motors import *
-import basic_robot.motors.py
+from basic_robot import motors.py
 
 class motob():
 
@@ -7,7 +7,7 @@ class motob():
     value = None #a holder of the most recent motor recommendation sent to the motob.
 
     def __init__(self):
-        #Legg til motorobjekt i motors
+        self.motors.append(motors.Motors())
         return
 
     def update(self,recommendation):# - receive a new motor recommendation, load it into the value slot, and operationalize it.
