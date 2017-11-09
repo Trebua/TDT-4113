@@ -20,7 +20,7 @@ class Motob():
         forhold = self.value[0][1]/90
         if self.value[1]:
             print("forward")
-            self.motors[0].forward(speed=0.5)
+            self.motors[0].forward()
         if not self.value[1]:
             print("stop")
             self.motors[0].stop()
