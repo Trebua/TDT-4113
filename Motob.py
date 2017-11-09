@@ -19,15 +19,15 @@ class Motob():
     def operationalize(self):
         forhold = self.value[0][1]/90
         if self.value[1]:
-            print("forward")
+            print("Motob: forward")
             self.motors[0].forward()
         if not self.value[1]:
-            print("stop")
+            print("Motob: stop")
             self.motors[0].stop()
         else:
             if self.value[0][0] == "L":
-                print("Left")
-                self.motors[0].set_value([0,forhold]) #Detaljer senere: hvordan få til 45 grader?
+                print("Motob: Left")
+                self.motors[0].set_value([-0.25,forhold]) #Detaljer senere: hvordan få til 45 grader?
             else:
-                print("Right")
-                self.motors[0].set_value([forhold,0])
+                print("Motob: Right")
+                self.motors[0].set_value([forhold,-0.25])
