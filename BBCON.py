@@ -71,6 +71,8 @@ class BBCON():
     #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
+        if len(winner.motor_recommendations) == 0:
+            return ("L",0),True #Betyr bare kjør fremover.
         return winner.motor_recommendations.pop(-1),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
 
     #Resetter alle sensobs
