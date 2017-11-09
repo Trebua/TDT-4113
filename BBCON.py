@@ -1,11 +1,11 @@
 import time
-import Motob
-import Behavior
-import Arbitrator
-import IR_sensob
-import Camera_sensob
-import Sensob
-import Ultrasonic_sensob
+from Motob import Motob
+from Behavior import Behavior
+from Arbitrator import Arbitrator
+from IR_sensob import IR_sensob
+from Camera_sensob import Camera_sensob
+from Sensob import Sensob
+from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
 import random
 import reflectance_sensors
