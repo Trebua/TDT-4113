@@ -1,7 +1,7 @@
 #from basic_robot.motors import *
 import motors
 
-class motob():
+class Motob():
 
     motors = [] # a list of the motors whose settings will be determined by the motob.
     value = None #a holder of the most recent motor recommendation sent to the motob.
