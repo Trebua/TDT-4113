@@ -15,7 +15,7 @@ class Ultrasonic_sensob(Sensob):
 
     #Oppdaterer self.distance med sensorens utregnede avstand
     def update(self):
-        self.distance = self.ultrasonic.compute_distance() #distanse i cm
+        self.distance = self.ultrasonic.sensor_get_value() #distanse i cm
         self.compute_value()
         self.compute_recommendation()
 
