@@ -184,9 +184,9 @@ def run():
 
 
     while True:
-        _thread.start_new_thread (bbcon.part1(0.2),("Thread-1", 2))
-        _thread.start_new_thread (bbcon.part2(0.2),("Thread-1", 2))
-        _thread.start_new_thread (bbcon.part3(0.2),("Thread-1", 2))
+        _thread.start_new_thread (bbcon.part1,("Thread-1", 2))
+        _thread.start_new_thread (bbcon.part2,("Thread-1", 2))
+        _thread.start_new_thread (bbcon.part3,("Thread-1", 2))
         #bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
             print(bbcon.active_behaviors[0].name)
