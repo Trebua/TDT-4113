@@ -1,5 +1,5 @@
 from Sensob import Sensob
-from camera import Camera
+from camera import *
 from PIL import Image
 
 #Camera sensorobjekt
@@ -28,7 +28,7 @@ class Camera_sensob(Sensob):
 
     #Finner gjennomsnittlig x verdi for grønn og finner mengden
     def find_green(self):
-        amount = 0 
+        amount = 0
         total_width = 0
         for width in range(self.img_width):
             for height in range(self.img_height):
@@ -62,8 +62,3 @@ class Camera_sensob(Sensob):
         else:
             self.recommendation = ("R",30)
         return
-
-
-
-
-
