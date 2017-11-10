@@ -33,3 +33,9 @@ Testing:
 - IR-proximity gir riktige verdier i arrayen
 - Kamera oppdaget grønn tekna flaske i riktig lys, og svinger riktig
 -
+
+Fra fredag:
+- Alle sensorer funker
+- Kamera behavior kommer veldig sjeldent
+- IR og ultrasonic behavior er aktive hele tiden, selvom behavior har pri 0
+- Motor recommendations forandres ikke.
