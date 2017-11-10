@@ -5,10 +5,10 @@ class Ultrasonic():
 
     def __init__(self):
         self.value = None
-        self.trig_pin = 3 #32
-        self.echo_pin = 7 #31
+        self.trig_pin = 32 #3 #32
+        self.echo_pin = 31 #7 #31
         self.setup()
-        self.find_pin()
+        #self.find_pin()
 
     def find_pin(self):
         for i in range(41):
