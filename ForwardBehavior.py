@@ -1,5 +1,5 @@
 
-class Behavior:
+class ForwardBehavior:
 
     #Mangler halt request, men trenger vi enkli det?
     def __init__(self, bbcon, priority = 0.1):
