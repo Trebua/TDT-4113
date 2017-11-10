@@ -164,9 +164,5 @@ def run():
     while True:
         bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
-            print(bbcon.active_behaviors[0].name)
-
-
-
-
-
+            for behavior in bbcon.active_behaviors:
+                print(behavior.name)
