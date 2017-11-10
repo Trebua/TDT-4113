@@ -17,9 +17,11 @@ class Camera_sensob(Sensob):
         self.max_blue = 150
         self.recommendation = None
         self.amount = None
+        print("Camera init")
 
     #Oppdaterer image og self.value
     def update(self):
+        print("Camera oppdateres")
         self.image = self.camera.update()
         x,self.amount = self.find_green()
         self.compute_value(x)
@@ -57,6 +59,7 @@ class Camera_sensob(Sensob):
     #Finner recommendation basert på hvilken side av kamera det er mest grønt
     def compute_recommendation(self,x): #(L,90)
         middle = self.img_width/2
+        print("Gjennomsnitt:",x)
         if x < middle:
             self.recommendation = ("L",30)
         else:
