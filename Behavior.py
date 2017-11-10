@@ -48,7 +48,7 @@ class Behavior:
         self.weight = self.match_degree*self.priority
 
     def compute_active_flag(self):
-        if self.match_degree < 0.2:
+        if self.match_degree < 0.1:
             self.active_flag = False
         else:
             self.active_flag = True

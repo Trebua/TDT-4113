@@ -22,7 +22,7 @@ class Ultrasonic_sensob(Sensob):
 
     #Hvis distansen er større enn 10 cm så bryr vi oss ikke om det, ellers blir det viktigere jo nærmere vi kommer
     def compute_value(self):
-        print(self.distance)
+        print("Distanse: ",self.distance)
         if self.distance >= 5:
             self.value = 0
         else:
