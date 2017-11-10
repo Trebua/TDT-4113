@@ -57,6 +57,7 @@ class Camera_sensob(Sensob):
     #Finner recommendation basert på hvilken side av kamera det er mest grønt
     def compute_recommendation(self,x): #(L,90)
         middle = self.img_width/2
+        print("Gjennomsnitt:",x)
         if x < middle:
             self.recommendation = ("L",30)
         else:
