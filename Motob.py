@@ -17,9 +17,10 @@ class Motob():
     #Vil få verdi som feks ((L,45), True/False)
     def operationalize(self):
         forhold = self.value[0][1]/90
+        print("Forhold i motob:", forhold)
         if self.value[1]:
             print("Motob: forward")
-            self.motors[0].forward()
+            self.motors[0].forward(1)
         #elif not self.value[1]:
         #    print("Motob: stop")
         #    self.motors[0].stop()
