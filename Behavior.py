@@ -47,11 +47,18 @@ class Behavior:
         self.match_degree = match
         self.weight = self.match_degree*self.priority
 
+    #Active flag skal komme fra sensor, ikke her??
+    '''
     def compute_active_flag(self):
         if self.weight < 0.2:
             self.active_flag = False
         else:
             self.active_flag = True
+    '''
+
+
+    def compute_active_flag(self):
+        self.active_flag = self.sensobs[0].recommendation[1]
 
     def update(self):
         for sensor in self.sensobs:

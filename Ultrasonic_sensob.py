@@ -30,5 +30,8 @@ class Ultrasonic_sensob(Sensob):
 
     #Ber roboten svinge til høyre eller venstre (tilfeldig) 90 grader.
     def compute_recommendation(self):
-        self.recommendation = (["L","R"][random.randint(0,1)],90)
+        active = False
+        if self.distance >= 5:
+            active = True
+        self.recommendation = ((["L","R"][random.randint(0,1)],90),active)
 
