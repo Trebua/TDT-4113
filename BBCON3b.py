@@ -73,7 +73,10 @@ class BBCON3b():
         winner = self.arbitrator.choose_action()
         if len(winner.motor_recommendations) == 0:
             return ("L",0),True #Betyr bare kjør fremover.
-        return winner.motor_recommendations.pop(-1),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
+        print("Første motor rec: ", winner.motor_recommendations[0])
+        print("Siste motor rec: ", winner.motor_recommendations[-1])
+        return winner.motor_recommendations.pop(0),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
+    #pop 0 eller siste?
 
     #Resetter alle sensobs
     def reset_sensobs(self):
@@ -119,6 +122,7 @@ def run():
     avoid_collision = Behavior(bbcon,0.4)
     find_color = Behavior(bbcon,1)
     avoid_line = Behavior(bbcon,0.7)
+    #forward = Behavior(bbcon,0.3)
 
     #Setter navn på behaviours
     avoid_collision.set_name("Ultrasonic-behavior")
@@ -143,8 +147,9 @@ def run():
     bbcon.add_sensob(camera)
 
     #Legger behaviours i bbcon
-    bbcon.add_behavior(avoid_collision)
+    #bbcon.add_behavior(forward)
     bbcon.add_behavior(find_color)
+    bbcon.add_behavior(avoid_collision)
     bbcon.add_behavior(avoid_line)
 
     #Legger motor inn i bbcon
