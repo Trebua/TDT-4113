@@ -18,9 +18,9 @@ class IR_sensob(Sensob):
         for val in all_values: #oppdaterer self.value med 1/6 (høyest mulig) hvis det er mørkt
             if (val > 0.7):
                 self.value += 1/len(all_values)
-        if left_value > right_value:
+        if left_value < right_value:
             print("IR: left")
             self.recommendation = ('R', 45)
-        elif right_value > left_value:
+        elif right_value < left_value:
             print("IR: right")
             self.recommendation = ('L', 45)
