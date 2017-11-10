@@ -8,7 +8,7 @@ class Ultrasonic():
         self.trig_pin = 3 #32
         self.echo_pin = 7 #31
         self.setup()
-        #self.find_pin()
+        self.find_pin()
 
     def find_pin(self):
         for i in range(41):
@@ -18,7 +18,7 @@ class Ultrasonic():
                     self.echo_pin = j
                     try:
                         if self.sensor_get_value() != 0:
-                            time.sleep(0.5)
+                            time.sleep(0.2)
                             print("trig: ", i)
                             print("echo: ", j)
                         else:
