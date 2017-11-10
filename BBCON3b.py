@@ -120,7 +120,7 @@ def run():
     ir = IR_sensob()
 
     #Initierer behaviour
-    avoid_collision = Behavior(bbcon,0.2)
+    avoid_collision = Behavior(bbcon,0)
     find_color = Behavior(bbcon,0.9)
     avoid_line = Behavior(bbcon,0.3)
     forward = ForwardBehavior(bbcon,0.3)
