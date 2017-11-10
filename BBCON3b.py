@@ -119,9 +119,9 @@ def run():
     ir = IR_sensob()
 
     #Initierer behaviour
-    avoid_collision = Behavior(bbcon,0.4)
-    find_color = Behavior(bbcon,1)
-    avoid_line = Behavior(bbcon,0.7)
+    avoid_collision = Behavior(bbcon,0.2)
+    find_color = Behavior(bbcon,0.9)
+    avoid_line = Behavior(bbcon,0.3)
     #forward = Behavior(bbcon,0.3)
 
     #Setter navn på behaviours
@@ -131,7 +131,7 @@ def run():
 
 
     #Initierer arbitrator
-    arbitrator = Arbitrator(bbcon,False) #Må sette true eller false, true = stokastisk, false = deterministisk
+    arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
 
     #Initerer motob
     motob = Motob()
