@@ -27,7 +27,7 @@ class Motob():
         else:
             if self.value[0][0] == "L":
                 print("Motob: Left")
-                self.motors[0].set_value([0,forhold])
+                self.motors[0].set_value([0,1])
             else:
                 print("Motob: Right")
-                self.motors[0].set_value([forhold,0])
+                self.motors[0].set_value([1,0])

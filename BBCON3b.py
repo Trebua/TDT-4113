@@ -76,7 +76,7 @@ class BBCON3b():
             return ("L",0),True #Betyr bare kjør fremover.
         print("Første motor rec: ", winner.motor_recommendations[0])
         print("Siste motor rec: ", winner.motor_recommendations[-1])
-        return winner.motor_recommendations.pop(0),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
+        return winner.motor_recommendations.pop(-1),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
     #pop 0 eller siste?
 
     #Resetter alle sensobs
