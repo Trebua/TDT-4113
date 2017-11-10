@@ -6,6 +6,7 @@ from IR_sensob import IR_sensob
 from Camera_sensob import Camera_sensob
 from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
+from ForwardBehavior import ForwardBehavior
 
 #Disse importeres i andre klasser
 #from Sensob import Sensob
@@ -122,7 +123,7 @@ def run():
     avoid_collision = Behavior(bbcon,0.2)
     find_color = Behavior(bbcon,0.9)
     avoid_line = Behavior(bbcon,0.3)
-    #forward = Behavior(bbcon,0.3)
+    forward = ForwardBehavior(bbcon,0.3)
 
     #Setter navn på behaviours
     avoid_collision.set_name("Ultrasonic-behavior")
@@ -147,7 +148,7 @@ def run():
     bbcon.add_sensob(camera)
 
     #Legger behaviours i bbcon
-    #bbcon.add_behavior(forward)
+    bbcon.add_behavior(forward)
     bbcon.add_behavior(find_color)
     bbcon.add_behavior(avoid_collision)
     bbcon.add_behavior(avoid_line)
