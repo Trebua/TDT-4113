@@ -45,4 +45,5 @@ class Arbitrator():
             if behave.weight > max:
                 max = behave.weight
                 winner = behave
+        winner.active_flag = True
         return winner

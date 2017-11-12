@@ -73,10 +73,10 @@ class BBCON3b():
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
         if len(winner.motor_recommendations) == 0:
-            return ("L",0),True #Betyr bare kjør fremover.
+            return (("L",0),True) #Betyr bare kjør fremover.
         print("Første motor rec: ", winner.motor_recommendations[0])
         print("Siste motor rec: ", winner.motor_recommendations[-1])
-        return winner.motor_recommendations.pop(-1),winner.active_flag #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
+        return (winner.motor_recommendations.pop(-1),winner.active_flag) #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
     #pop 0 eller siste?
 
     #Resetter alle sensobs
@@ -97,11 +97,11 @@ class BBCON3b():
 
         #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
         #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
-        recommendation,active_flag = self.choose_winning_behaviour()
+        recommendation = self.choose_winning_behaviour()
 
         #4. Update the motobs based on these motor recommendations. The motobs will then update
         #  the settings of all motors.
-        self.update_motobs((recommendation, active_flag))
+        self.update_motobs(recommendation)
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
@@ -120,10 +120,10 @@ def run():
     ir = IR_sensob()
 
     #Initierer behaviour
-    avoid_collision = Behavior(bbcon,0)
+    avoid_collision = Behavior(bbcon,0.3)
     find_color = Behavior(bbcon,0.9)
-    avoid_line = Behavior(bbcon,0.3)
-    forward = ForwardBehavior(bbcon,0.3)
+    avoid_line = Behavior(bbcon,0.4)
+    forward = ForwardBehavior(bbcon,0.2)
 
     #Setter navn på behaviours
     avoid_collision.set_name("Ultrasonic-behavior")

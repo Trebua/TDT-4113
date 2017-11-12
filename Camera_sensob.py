@@ -61,7 +61,7 @@ class Camera_sensob(Sensob):
         middle = self.img_width/2
         print("Gjennomsnitt:",x)
         if x < middle:
-            self.recommendation = (("L",30),True)
+            self.recommendation = (("L",30),False)
         else:
-            self.recommendation = (("R",30),True)
+            self.recommendation = (("R",30),False)
         return

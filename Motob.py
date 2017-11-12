@@ -8,6 +8,7 @@ class Motob():
 
     def __init__(self):
         self.motors.append(motors.Motors())
+        self.time_per_degree = 3/360 #på 0.5 fart vil 10 grader ta 3/360 * 10 tid
         return
 
     def update(self,recommendation):# - receive a new motor recommendation, load it into the value slot, and operationalize it.
@@ -20,14 +21,14 @@ class Motob():
         print("Forhold i motob:", forhold) # Blir alltid 0.011111111112
         if self.value[1]:
             print("Motob: forward")
-            self.motors[0].forward(0.4)
-        #elif not self.value[1]:
-        #    print("Motob: stop")
-        #    self.motors[0].stop()
+            self.motors[0].forward(0.5)#default er 0.25?
+            ############Skal vi gi dem en duration for å teste?
         else:
             if self.value[0][0] == "L":
                 print("Motob: Left")
-                self.motors[0].set_value([0,1])
+                self.motors[0].left(0.5, self.time_per_degree * self.value[0][1]) #ny
+                #self.motors[0].set_value([0,1])
             else:
                 print("Motob: Right")
-                self.motors[0].set_value([1,0])
+                self.motors[0].right(0.5, self.time_per_degree * self.value[0][1]) #ny
+                #gammel: self.motors[0].set_value([1,0])
