@@ -47,12 +47,12 @@ class BBCON3b():
 
     def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
         self.active_behaviors.append(behavior)
-        return
+        return True
 
     def deactive_behavior(self, behavior): #remove an existing behavior from the active behaviors list.
         if behavior in self.active_behaviors:
             self.active_behaviors.remove(behavior)
-        return
+        return True
 
     #Oppdaterer alle behaviors
     def update_behaviors(self):
@@ -120,10 +120,10 @@ def run():
     ir = IR_sensob()
 
     #Initierer behaviour
-    avoid_collision = Behavior(bbcon,0.3)
-    find_color = Behavior(bbcon,0.9)
-    avoid_line = Behavior(bbcon,0.4)
-    forward = ForwardBehavior(bbcon,0.2)
+    avoid_collision = Behavior(bbcon,0.8)
+    find_color = Behavior(bbcon,1.5)
+    avoid_line = Behavior(bbcon,1)
+    forward = ForwardBehavior(bbcon,0.3)
 
     #Setter navn på behaviours
     avoid_collision.set_name("Ultrasonic-behavior")

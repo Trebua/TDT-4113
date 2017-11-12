@@ -51,9 +51,9 @@ class Camera_sensob(Sensob):
     def compute_value(self,x):
         middle = self.img_width/2
         if x < middle:
-            self.value = (middle-x)/middle
+            self.value = (abs(middle-x))/middle
         else:
-            self.value = (x-middle)/middle
+            self.value = (abs(x-middle))/middle
         return
 
     #Finner recommendation basert på hvilken side av kamera det er mest grønt

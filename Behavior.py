@@ -20,14 +20,26 @@ class Behavior:
         self.name = name
 
     def consider_deactivation(self):
+        '''
         if self.active_flag:
             if self in self.bbcon.active_behaviors:
                 self.bbcon.deactive_behavior(self)
+        '''
+        #Deaktiverer behavior hvis vekten er for lav
+        if self in self.bbcon.active_behaviors:
+            if self.weight < 0.2:
+                print(self.name + " ble deaktivert: ",self.bbcon.deactive_behavior(self))
 
     def consider_activation(self):
+        '''
         if not self.active_flag:
             if self not in self.bbcon.active_behaviors:
                 self.bbcon.activate_behavior(self)
+        '''
+        #PRøver heller å aktivere behavior hvis vekten er stor nok
+        if self not in self.bbcon.active_behaviors:
+            if self.weight >= 0.2:
+                print(self.name + " ble aktivert: ", self.bbcon.activate_behavior(self))
 
     def sense_and_act(self):
         if self.active_flag:
