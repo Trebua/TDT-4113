@@ -20,7 +20,7 @@ class IR_sensob(Sensob):
                 self.value += 1/len(all_values)
         if left_value < right_value:
             print("IR: left")
-            self.recommendation = (('R', 45),False)
+            self.recommendation = (('R', 100),False)
         elif right_value < left_value:
             print("IR: right")
-            self.recommendation = (('L', 45),False)
+            self.recommendation = (('L', 100),False)

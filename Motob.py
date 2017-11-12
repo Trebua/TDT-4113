@@ -21,7 +21,7 @@ class Motob():
         print("Forhold i motob:", forhold) # Blir alltid 0.011111111112
         if self.value[1]:
             print("Motob: forward")
-            self.motors[0].forward(0.5)#default er 0.25?
+            self.motors[0].forward(0.3)
             ############Skal vi gi dem en duration for å teste?
         else:
             if self.value[0][0] == "L":
