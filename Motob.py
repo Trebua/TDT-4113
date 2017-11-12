@@ -17,8 +17,8 @@ class Motob():
 
     #Vil få verdi som feks ((L,45), True/False)
     def operationalize(self):
-        forhold = self.value[0][1]/90
-        print("Forhold i motob:", forhold) # Blir alltid 0.011111111112
+        #forhold = self.value[0][1]/90
+        #print("Forhold i motob:", forhold) # Blir alltid 0.011111111112
         if self.value[1]:
             print("Motob: forward")
             self.motors[0].forward(0.3)

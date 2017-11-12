@@ -34,16 +34,15 @@ class Arbitrator():
             if value[1] < rand:
                 winner = key
         if winner == None:
-            winner = self.bbcon.behaviors[0] #Dette funker ikke??
+            winner = self.bbcon.behaviors[0]
         return winner
 
     #Velger den med størst prioritet
     def deterministic_choice(self):
-        max = self.bbcon.behaviors[0].weight #Active her?
-        winner = self.bbcon.behaviors[0] #Active behaviours her?
+        max = self.bbcon.behaviors[0].weight
+        winner = self.bbcon.behaviors[0]
         for behave in self.bbcon.active_behaviors:
             if behave.weight > max:
                 max = behave.weight
                 winner = behave
-        #winner.active_flag = True må vel kanskje være false isåfall?
         return winner

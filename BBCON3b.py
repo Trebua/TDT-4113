@@ -72,10 +72,10 @@ class BBCON3b():
     #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
-        if len(winner.motor_recommendations) == 0:
-            return (("L",0),True) #Betyr bare kjør fremover.
-        print("Første motor rec: ", winner.motor_recommendations[0])
-        print("Siste motor rec: ", winner.motor_recommendations[-1])
+        #if len(winner.motor_recommendations) == 0:
+        #    return (("L",0),True) #Betyr bare kjør fremover.
+        #print("Første motor rec: ", winner.motor_recommendations[0])
+        #print("Siste motor rec: ", winner.motor_recommendations[-1])
         return (winner.motor_recommendations.pop(-1),winner.active_flag) #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
     #pop 0 eller siste?
 
@@ -148,7 +148,7 @@ def run():
     bbcon.add_sensob(camera)
 
     #Legger behaviours i bbcon
-    bbcon.add_behavior(forward)
+    bbcon.add_behavior(forward) #Må være første så den alltid brukes hvis ingen vinner
     bbcon.add_behavior(find_color)
     bbcon.add_behavior(avoid_collision)
     bbcon.add_behavior(avoid_line)
@@ -165,4 +165,5 @@ def run():
         bbcon.run_one_timestep()
         if len(bbcon.active_behaviors) > 0:
             for behavior in bbcon.active_behaviors:
+                print("Alle aktive behaviors: ")
                 print(behavior.name)

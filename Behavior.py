@@ -42,22 +42,23 @@ class Behavior:
                 print(self.name + " ble aktivert: ", self.bbcon.activate_behavior(self))
 
     def sense_and_act(self):
-        if self.active_flag:
-            dict = {}
-            #Skal vi legge til flere motor_recommendations eller bare den med størst prioritet?
-            for sensor in self.sensobs:
-                dict[sensor] = sensor.value
-            v=list(dict.values())
-            k=list(dict.keys())
-            self.add_motor_recommendation(k[v.index(max(v))].recommendation)
+        #if self.active_flag: #Blir feil når active flag brukes som forward
+        #dict = {}
+        #Skal vi legge til flere motor_recommendations eller bare den med størst prioritet?
+        #for sensor in self.sensobs:
+        #    dict[sensor] = sensor.value
+        #v=list(dict.values())
+        #k=list(dict.keys())
+        #self.add_motor_recommendation(k[v.index(max(v))].recommendation)
+        self.add_motor_recommendation(self.sensobs[1].recommendation)
 
     def compute_match_degree(self):
-        match = 0
-        for sensor in self.sensobs:
-            match += sensor.value
-        match = match/len(self.sensobs)
-        self.match_degree = match
-        self.weight = self.match_degree*self.priority
+        #match = 0
+        #for sensor in self.sensobs:
+        #    match += sensor.value
+        #match = match/len(self.sensobs)
+        #self.match_degree = match
+        self.weight = self.sensobs[0].value*self.priority
 
     #Active flag skal komme fra sensor, ikke her??
     '''
