@@ -68,6 +68,7 @@ class Behavior:
         self.consider_activation()
         self.consider_deactivation()
         self.sense_and_act()
+        print(self.name + " sin vekt: ", self.weight) #For debugging (forward sin vil vel alltid være 0.3?)
 
 
     def add_sensob(self,sensob):
