@@ -49,9 +49,9 @@ class Camera_sensob(Sensob):
     def compute_value(self,x):
         middle = self.img_width/2
         print("amount: ", self.amount)
-        #if self.amount < :
-        #    self.value = 0
-        #    return
+        if self.amount < 150:
+            self.value = 0
+            return
         if x < middle:
             self.value = (abs(middle-x))/middle
         else:
