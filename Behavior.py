@@ -69,15 +69,16 @@ class Behavior:
             self.active_flag = True
     '''
 
-
+    '''
     def compute_active_flag(self):
-        self.active_flag = self.sensobs[0].recommendation[1]
+        self.active_flag = self.sensobs[0].recommendation
+    '''
 
     def update(self):
         for sensor in self.sensobs:
             sensor.update()
         self.compute_match_degree() #setter match til summen av match fra sensorer
-        self.compute_active_flag()
+        #self.compute_active_flag()
         self.consider_activation()
         self.consider_deactivation()
         self.sense_and_act()
