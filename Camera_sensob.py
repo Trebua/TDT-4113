@@ -48,6 +48,10 @@ class Camera_sensob(Sensob):
     #Må kanskje justere img_width hvis den er feil
     def compute_value(self,x):
         middle = self.img_width/2
+        print("amount: ", self.amount)
+        #if self.amount < :
+        #    self.value = 0
+        #    return
         if x < middle:
             self.value = (abs(middle-x))/middle
         else:
@@ -57,7 +61,7 @@ class Camera_sensob(Sensob):
     #Finner recommendation basert på hvilken side av kamera det er mest grønt
     def compute_recommendation(self,x):
         middle = self.img_width/2
-        turn_degree = abs(middle-x) #maks vinkel som kan svinges er da 64 grader, hvis x er i midten vil grader bli 0
+        turn_degree = abs(middle-x)/2 #maks vinkel som kan svinges er da 64 grader, hvis x er i midten vil grader bli 0
         if turn_degree < 5: #Kjører bare rett frem hvis turn degree'en er for lav
             self.recommendation = (("L",0),True)
         elif x < middle:
