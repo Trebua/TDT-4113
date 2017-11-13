@@ -19,6 +19,7 @@ class Arbitrator():
     def stochastic_choice(self):
         sum_weight = 0
         behaviour_dict = {}
+        winner = self.bbcon.behaviors[0]
 
         #Går igjennom alle behaviours og lager en dictionary med intervaller
         for behave in self.bbcon.behaviors:
@@ -28,14 +29,12 @@ class Arbitrator():
 
         #Plukker et random tall innenfor intervallet
         rand = random.uniform(0,sum_weight)
-        winner = None
 
         #Finner riktig vinner
         for key,value in behaviour_dict.items():
             if value[1] < rand:
                 winner = key
-        if winner == None:
-            winner = self.bbcon.behaviors[0]
+        print("Winner i arbitrator: ", winner)
         return winner
 
     #Velger den med størst prioritet

@@ -8,6 +8,7 @@ class IR_sensob(Sensob):
         self.IR = ReflectanceSensors()
         self.value = None
         self.recommendation = None
+        self.active_flag = False
 
     def update(self):
         #tar inn 6 verdier i en liste, som er tall mellom 0 og 1, der 0 er mørkt, mens 1 er lyst.

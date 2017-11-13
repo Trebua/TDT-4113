@@ -61,7 +61,7 @@ class BBCON3b():
     #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
-        return (winner.motor_recommendation,winner.active_flag)
+        return winner.motor_recommendation
 
     #Resetter alle sensobs
     def reset_sensobs(self):
