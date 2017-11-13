@@ -181,5 +181,7 @@ def run():
 
     ZumoButton().wait_for_press()
     bbcon.start()
-    #while True:
-    #    bbcon.run_one_timestep()
+    while True:
+        bbcon.part1()
+        bbcon.part2()
+        bbcon.part3()
