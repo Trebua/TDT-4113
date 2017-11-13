@@ -179,9 +179,11 @@ def run():
     #Legger til arbitrator
     bbcon.set_arbitrator(arbitrator)
 
-    ZumoButton().wait_for_press()
+    #ZumoButton().wait_for_press()
     bbcon.start()
+    """
     while True:
         bbcon.part1()
         bbcon.part2()
         bbcon.part3()
+    """
