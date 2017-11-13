@@ -29,7 +29,6 @@ class Behavior:
         self.sensob.update()
         self.compute_match_degree()
         self.sense_and_act()
-        print(self.name + " sin vekt: ", self.weight)
 
 
     def add_sensob(self,sensob):

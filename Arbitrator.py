@@ -34,7 +34,6 @@ class Arbitrator():
         for key,value in behaviour_dict.items():
             if value[1] < rand:
                 winner = key
-        print("Winner i arbitrator: ", winner)
         return winner
 
     #Velger den med størst prioritet
@@ -45,5 +44,4 @@ class Arbitrator():
             if behave.weight > max and behave.weight > 0.25:
                 max = behave.weight
                 winner = behave
-        print("Winner: ",winner.name)
         return winner
