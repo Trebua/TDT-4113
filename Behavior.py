@@ -50,7 +50,7 @@ class Behavior:
         #v=list(dict.values())
         #k=list(dict.keys())
         #self.add_motor_recommendation(k[v.index(max(v))].recommendation)
-        self.add_motor_recommendation(self.sensobs[1].recommendation)
+        self.add_motor_recommendation(self.sensobs[0].recommendation)
 
     def compute_match_degree(self):
         #match = 0
