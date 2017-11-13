@@ -22,10 +22,10 @@ class Ultrasonic_sensob(Sensob):
 
     #Hvis distansen er større enn 10 cm så bryr vi oss ikke om det, ellers blir det viktigere jo nærmere vi kommer
     def compute_value(self):
-        if self.distance >= 5:
+        if self.distance >= 10:
             self.value = 0
         else:
-            self.value = (1-(self.distance/5)) #Kanskje delt på 5 siden den ikke vil være større enn 5
+            self.value = (1-(self.distance/10)) #Kanskje delt på 5 siden den ikke vil være større enn 5
 
     #Ber roboten svinge til høyre eller venstre (tilfeldig) 90 grader.
     def compute_recommendation(self):
