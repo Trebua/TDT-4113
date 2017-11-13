@@ -20,7 +20,7 @@ class Behavior:
         self.name = name
 
     def sense_and_act(self):
-        self.add_motor_recommendation(self.sensobs[0].recommendation)
+        self.add_motor_recommendation(self.sensob.recommendation)
 
     def compute_match_degree(self):
         self.weight = self.sensob.value*self.priority
