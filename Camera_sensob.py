@@ -48,7 +48,6 @@ class Camera_sensob(Sensob):
     #Må kanskje justere img_width hvis den er feil
     def compute_value(self,x):
         middle = self.img_width/2
-        print("amount: ", self.amount)
         if self.amount < 150:
             self.value = 0
             return
