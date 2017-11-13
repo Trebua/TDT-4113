@@ -19,13 +19,13 @@ class Motob():
     def operationalize(self):
         if self.value[1]:
             print("Motob: forward")
-            self.motors[0].forward(0.3)
+            self.motor.forward(0.3)
         else:
             if self.value[0][0] == "L":
                 print("Motob: Left")
-                self.motors[0].left(0.5, self.time_per_degree * self.value[0][1]) #ny
+                self.motor.left(0.5, self.time_per_degree * self.value[0][1]) #ny
                 #self.motors[0].set_value([0,1])
             else:
                 print("Motob: Right")
-                self.motors[0].right(0.5, self.time_per_degree * self.value[0][1]) #ny
+                self.motor.right(0.5, self.time_per_degree * self.value[0][1]) #ny
                 #gammel: self.motors[0].set_value([1,0])
