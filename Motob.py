@@ -18,7 +18,7 @@ class Motob():
     #Vil få verdi som feks ((L,45), True/False)
     def operationalize(self):
         if self.value[1]:
-            self.motor.forward(0.1)
+            self.motor.forward(0.2)
         else:
             if self.value[0][0] == "L":
                 self.motor.left(0.5, self.time_per_degree * self.value[0][1]) #ny
