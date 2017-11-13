@@ -89,7 +89,7 @@ class BBCON3b():
 
         #5. Wait - This pause (in code execution) will allow the motor settings to remain active
         #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-        #time.sleep(0.1)
+        time.sleep(0.4)
 
         #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
         self.reset_sensobs()
@@ -106,7 +106,7 @@ def run():
     #Initierer behaviour
     avoid_collision = Behavior(bbcon,10)
     find_color = Behavior(bbcon,1.5)
-    avoid_line = Behavior(bbcon,10)
+    avoid_line = Behavior(bbcon,20)
     forward = ForwardBehavior(bbcon,0.3)
 
     #Setter navn på behaviours
@@ -116,7 +116,7 @@ def run():
 
 
     #Initierer arbitrator
-    arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
+    arbitrator = Arbitrator(bbcon,False) #Må sette true eller false, true = stokastisk, false = deterministisk
 
     #Initerer motob
     motob = Motob()
