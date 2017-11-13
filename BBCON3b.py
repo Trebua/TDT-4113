@@ -7,7 +7,6 @@ from Camera_sensob import Camera_sensob
 from Ultrasonic_sensob import Ultrasonic_sensob
 from zumo_button import ZumoButton
 from ForwardBehavior import ForwardBehavior
-import _thread as thread
 
 #Disse importeres i andre klasser
 #from Sensob import Sensob
@@ -68,41 +67,6 @@ class BBCON3b():
     def reset_sensobs(self):
         for sensor in self.sensobs:
             sensor.reset()
-
-    def start(self):
-        ZumoButton().wait_for_press()
-        thread.start_new_thread(self.part1, ())
-        thread.start_new_thread(self.part2, ())
-        thread.start_new_thread(self.part3, ())
-
-    def part1(self):
-        while True:
-            #1. Update all sensobs - These updates will involve querying the relevant sensors
-        # for their values, along with any pre-processing of those values (as described below)
-            self.update_sensobs()
-
-        #2. Update all behaviors - These updates involve reading relevant sensob values and
-        #  producing a motorrecommendation.
-            self.update_behaviors()
-
-    def part2(self):
-        while True:
-            #3. Invoke the arbitrator by calling arbitrator.choose action, which will choose
-        #  a winning behavior andreturn that behavior’s motor recommendations and halt request flag.
-            recommendation = self.choose_winning_behaviour()
-
-        #4. Update the motobs based on these motor recommendations. The motobs will then update
-        #  the settings of all motors.
-            self.update_motobs(recommendation)
-
-    def part3(self):
-        while True:
-            #5. Wait - This pause (in code execution) will allow the motor settings to remain active
-        #  for a short period of time, e.g., one half second, thus producing activity in the robot, such as moving forward or turning.
-            time.sleep(0.4)
-
-        #6. Reset the sensobs - Each sensob may need to reset itself, or its associated sensor(s), in some way
-            self.reset_sensobs()
 
     #Kjører alle metodene
     def run_one_timestep(self):
@@ -180,8 +144,6 @@ def run():
     bbcon.set_arbitrator(arbitrator)
 
     ZumoButton().wait_for_press()
-    bbcon.start()
     while True:
-        bbcon.part1()
-        bbcon.part2()
-        bbcon.part3()
+        bbcon.run_one_timestep()
+
