@@ -45,4 +45,5 @@ class Arbitrator():
             if behave.weight > max and behave.weight > 0.25:
                 max = behave.weight
                 winner = behave
+        print("Winner: ",winner.name)
         return winner

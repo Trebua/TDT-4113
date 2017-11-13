@@ -21,7 +21,6 @@ class Camera_sensob(Sensob):
 
     #Oppdaterer image og self.value
     def update(self):
-        print("Camera oppdateres")
         self.image = self.camera.update()
         x,self.amount = self.find_green()
         self.compute_value(x)
