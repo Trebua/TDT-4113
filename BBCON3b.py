@@ -21,9 +21,8 @@ from ForwardBehavior import ForwardBehavior
 class BBCON3b():
 
     behaviors = [] #a list of all the behavior objects used by the bbcon
-    active_behaviors = [] #a list of all behaviors that are currently active.
     sensobs = [] #a list of all sensory objects used by the bbcon
-    motobs = [] #a list of all motor objects used by the bbcon
+    motob = None #a list of all motor objects used by the bbcon
     arbitrator = None #the arbitrator object that will resolve actuator requests produced by the behaviors.
 
     #Other instance variables, such as the current timestep, the inactive behaviors, and the controlled agent/robot
@@ -38,21 +37,12 @@ class BBCON3b():
         return
 
     def add_motob(self,motob):
-        self.motobs.append(motob)
+        self.motob = motob
         return
 
     def set_arbitrator(self,arbitrator):
         self.arbitrator = arbitrator
         return
-
-    def activate_behavior(self, behavior): #add an existing behavior onto the active-behaviors list.
-        self.active_behaviors.append(behavior)
-        return True
-
-    def deactive_behavior(self, behavior): #remove an existing behavior from the active behaviors list.
-        if behavior in self.active_behaviors:
-            self.active_behaviors.remove(behavior)
-        return True
 
     #Oppdaterer alle behaviors
     def update_behaviors(self):
@@ -61,8 +51,7 @@ class BBCON3b():
 
     #Oppdaterer alle motobs med recommendations fra vinnende behaviour
     def update_motobs(self, recommendation):
-        for motob in self.motobs:
-            motob.update(recommendation)
+        self.motob.update(recommendation)
 
     #Oppdaterer sensorverdier
     def update_sensobs(self):
@@ -72,12 +61,7 @@ class BBCON3b():
     #Finner vinnende behaviour og returnerer recommendation + active_flag
     def choose_winning_behaviour(self):
         winner = self.arbitrator.choose_action()
-        #if len(winner.motor_recommendations) == 0:
-        #    return (("L",0),True) #Betyr bare kjør fremover.
-        #print("Første motor rec: ", winner.motor_recommendations[0])
-        #print("Siste motor rec: ", winner.motor_recommendations[-1])
-        return (winner.motor_recommendations.pop(-1),winner.active_flag) #Er det riktig at første recommendation skal velges? eventuelt fjerne denne behaviouren?
-    #pop 0 eller siste?
+        return (winner.motor_recommendation,winner.active_flag)
 
     #Resetter alle sensobs
     def reset_sensobs(self):
@@ -163,7 +147,3 @@ def run():
 
     while True:
         bbcon.run_one_timestep()
-        if len(bbcon.active_behaviors) > 0:
-            for behavior in bbcon.active_behaviors:
-                print("Alle aktive behaviors: ")
-                print(behavior.name)

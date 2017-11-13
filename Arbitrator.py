@@ -21,9 +21,10 @@ class Arbitrator():
         behaviour_dict = {}
 
         #Går igjennom alle behaviours og lager en dictionary med intervaller
-        for behave in self.bbcon.active_behaviors:
-            behaviour_dict[behave] = [sum_weight,sum_weight+behave.weight]
-            sum_weight+= behave.weight
+        for behave in self.bbcon.behaviors:
+            if behave.weight > 0.25:
+                behaviour_dict[behave] = [sum_weight,sum_weight+behave.weight]
+                sum_weight+= behave.weight
 
         #Plukker et random tall innenfor intervallet
         rand = random.uniform(0,sum_weight)
@@ -41,8 +42,8 @@ class Arbitrator():
     def deterministic_choice(self):
         max = self.bbcon.behaviors[0].weight
         winner = self.bbcon.behaviors[0]
-        for behave in self.bbcon.active_behaviors:
-            if behave.weight > max:
+        for behave in self.bbcon.behaviors:
+            if behave.weight > max and behave.weight > 0.25:
                 max = behave.weight
                 winner = behave
         return winner
