@@ -21,5 +21,5 @@ class IR_sensob(Sensob):
                 self.value += 1/len(all_values)
         if left_value < right_value:
             self.recommendation = (('L', 100),False)
-        elif right_value < left_value:
+        else:
             self.recommendation = (('R', 100),False)
