@@ -116,7 +116,7 @@ def run():
 
 
     #Initierer arbitrator
-    arbitrator = Arbitrator(bbcon,True) #Må sette true eller false, true = stokastisk, false = deterministisk
+    arbitrator = Arbitrator(bbcon,False) #Må sette true eller false, true = stokastisk, false = deterministisk
 
     #Initerer motob
     motob = Motob()
@@ -132,8 +132,8 @@ def run():
     bbcon.add_sensob(camera)
 
     #Legger behaviours i bbcon
-    bbcon.add_behavior(forward) #Må være første så den alltid brukes hvis ingen vinner
     bbcon.add_behavior(find_color)
+    bbcon.add_behavior(forward) #Må være første så den alltid brukes hvis ingen vinner
     bbcon.add_behavior(avoid_collision)
     bbcon.add_behavior(avoid_line)
 
