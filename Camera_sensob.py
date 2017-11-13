@@ -61,7 +61,7 @@ class Camera_sensob(Sensob):
     def compute_recommendation(self,x):
         middle = self.img_width/2
         turn_degree = abs(middle-x)/2 #maks vinkel som kan svinges er da 64 grader, hvis x er i midten vil grader bli 0
-        if turn_degree < 5: #Kjører bare rett frem hvis turn degree'en er for lav
+        if turn_degree*2 < 4: #Kjører bare rett frem hvis turn degree'en er for lav
             self.recommendation = (("L",0),True)
         elif x < middle:
             self.recommendation = (("L",turn_degree),False)
